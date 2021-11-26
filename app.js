@@ -7,9 +7,14 @@ const methodOverride = require('method-override');
 const session = require('express-session');
 const flash = require('connect-flash');
 
-const dashboardRouter = require('./app/dashboard/router');
+const UsersRouter = require('./app/users/router');
+const DashboardRouter = require('./app/dashboard/router');
 const CategoryRouter = require('./app/category/router');
 const NominalRouter = require('./app/nominal/router');
+const VoucherRouter = require('./app/voucher/router');
+const BankRouter = require('./app/bank/router');
+const PaymentRouter = require('./app/payment/router');
+const TransactionRouter = require('./app/transaction/router');
 
 const app = express();
 
@@ -32,9 +37,14 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/adminlte', express.static(path.join(__dirname, '/node_modules/admin-lte')));
 
-app.use('/', dashboardRouter);
+app.use('/', UsersRouter);
+app.use('/dashboard', DashboardRouter);
 app.use('/category', CategoryRouter);
 app.use('/nominal', NominalRouter);
+app.use('/voucher', VoucherRouter);
+app.use('/bank', BankRouter);
+app.use('/payment', PaymentRouter);
+app.use('/transaction', TransactionRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

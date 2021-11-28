@@ -1,0 +1,78 @@
+<%- include ../../partials/header.ejs %>
+<%- include ../../partials/navbar.ejs %>  
+<%- include ../../partials/sidebar.ejs %>
+
+<div class="content-wrapper">
+
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Users</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="/dashboard">Home</a></li>
+              <li class="breadcrumb-item"><a href="/users">Users</a></li>
+              <li class="breadcrumb-item active">Tambah</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="card-body">
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title">Form Tambah Users</h3>
+                    </div>
+                    <form action="/users/create" method="post">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" class="form-control" id="email" name="email" placeholder="Masukan email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="name">Nama Users</label>
+                                <input type="text" class="form-control" id="name" name="name" placeholder="Masukan nama" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input type="password" class="form-control" id="password" name="password" placeholder="Masukan password" required>
+                            </div>
+                            <div class="form-group">
+                              <label>Role</label>
+                              <select class="form-control select2" style="width: 100%;" name="role" required>
+                                <option selected="selected">Pilih Role</option>
+                                <option value="admin">admin</option>
+                                <option value="user">user</option>
+                              </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="phoneNumber">Nomor Telepon</label>
+                                <input type="number" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="Masukan Nomor Telepon" required>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <button type="submit" class="btn btn-primary">Simpan</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+      
+          </div>
+        
+        </div>
+     
+      </div>
+    
+    </section>
+   
+</div>
+
+<%- include ../../partials/footer.ejs %>  
+<%- include ../../partials/js.ejs %>  

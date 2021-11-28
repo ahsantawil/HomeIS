@@ -79,7 +79,7 @@ module.exports = {
                      } catch (err) {
                         req.flash('alertMessage', `${err.message}`);
                         req.flash('alertStatus', 'danger');
-                        res.redirect('/nominal');
+                        res.redirect('/voucher');
                      }
                  })
              } else {
@@ -99,7 +99,7 @@ module.exports = {
          } catch (err) {
              req.flash('alertMessage', `${err.message}`);
              req.flash('alertStatus', 'danger');
-             res.redirect('/nominal');
+             res.redirect('/voucher');
          }
      },
 

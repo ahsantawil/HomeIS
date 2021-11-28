@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const bcrypt   = require('bcryptjs')
 
 let userSchema = mongoose.Schema({
     email: {
@@ -28,5 +29,14 @@ let userSchema = mongoose.Schema({
         require: [true, 'Phone number harus diisi']
     }
 }, { timestamps: true })
+
+userSchema.pre('save', async function(next) {
+    const user = this;
+
+    if (user.isModified('password')) {
+        user.password = await bcrypt.hash(user.password, 8);
+    }
+    next();
+});
 
 module.exports = mongoose.model('Users', userSchema);

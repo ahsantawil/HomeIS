@@ -120,5 +120,21 @@ module.exports = {
              req.flash('alertStatus', 'danger');
              res.redirect('/users');
          }
+     },
+
+     viewProfile : async (req, res) => {
+         try {
+
+            const users = await Users.find();
+            res.render('admin/users/view_profile', {
+                users,
+                name: req.session.user.name,
+                title: 'Halaman Profile'
+            })
+         } catch (err) {
+            req.flash('alertMessage', `${err.message}`);
+            req.flash('alertStatus', 'danger');
+            res.redirect('/users');
+         }
      }
 }

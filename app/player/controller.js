@@ -22,18 +22,18 @@ module.exports = {
          }
      },
 
-     viewCreate : async(req, res) => {
-         try {
-             res.render('admin/player/create', {
-                name: req.session.user.name,
-                title: 'add player'
-             })
-         } catch (err) {
-             req.flash('alertMessage', `${err.message}`);
-             req.flash('alertStatus', 'danger');
-             res.redirect('/player');
-         }
-     },
+    //  viewCreate : async(req, res) => {
+    //      try {
+    //          res.render('admin/player/create', {
+    //             name: req.session.user.name,
+    //             title: 'add player'
+    //          })
+    //      } catch (err) {
+    //          req.flash('alertMessage', `${err.message}`);
+    //          req.flash('alertStatus', 'danger');
+    //          res.redirect('/player');
+    //      }
+    //  },
 
     //  actionCreate : async (req, res)=> {
     //      try {

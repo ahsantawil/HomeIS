@@ -17,8 +17,11 @@ const PaymentRouter = require('./app/payment/router');
 const TransactionRouter = require('./app/transaction/router');
 const dataUsersRouter = require('./app/data_users/router');
 const PlayerRouter = require('./app/player/router');
+const PlayerApiRouter = require('./app/player/api/router');
+const authApiRouter = require('./app/auth/router');
 
 const app = express();
+const URL = `/api/v1`;
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -49,6 +52,11 @@ app.use('/payment', PaymentRouter);
 app.use('/transaction', TransactionRouter);
 app.use('/users', dataUsersRouter);
 app.use('/player', PlayerRouter);
+app.use('/player', PlayerRouter);
+
+// api
+app.use( `${URL}/players`, PlayerApiRouter);
+app.use( `${URL}/auth`, authApiRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
